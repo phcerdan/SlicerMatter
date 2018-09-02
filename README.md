@@ -1,4 +1,9 @@
-SlicerMatter by SlicerMatter, Inc.
+<p align="center">
+<img src="SlicerMatterLogo.png" width="512">
+</p>
+
+
+SlicerMatter
 ================================
 
 Customized version of Slicer for Matter and Soft-Matter analysis
