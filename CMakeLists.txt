@@ -14,8 +14,9 @@ include(FetchContent)
 if(NOT DEFINED slicersources_SOURCE_DIR)
   # Download Slicer sources and set variables slicersources_SOURCE_DIR and slicersources_BINARY_DIR
   FetchContent_Populate(slicersources
-    GIT_REPOSITORY git://github.com/Slicer/Slicer
-    GIT_TAG        af5f294fbb7213281edfb5f197776de0366d465f # 2018-09-01
+    GIT_REPOSITORY git://github.com/phcerdan/Slicer
+    # GIT_TAG        af5f294fbb7213281edfb5f197776de0366d465f # 2018-09-01
+    GIT_TAG        origin/pass_itk_cmake_args
     GIT_PROGRESS   1
     )
 else()
@@ -24,6 +25,9 @@ endif()
 
 set(CMAKE_MODULE_PATH ${slicersources_SOURCE_DIR}/CMake ${CMAKE_MODULE_PATH})
 include(SlicerInitializeOSXVariables)
+
+# Custom Extra Options
+set(Slicer_ITK_EXTRA_CMAKE_ARGS "-DModule_IsotropicWavelets:BOOL=ON")
 
 # Configure Application
 set(Slicer_APPLICATIONS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Applications)
